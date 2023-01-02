@@ -41,7 +41,7 @@ sudo update-alternatives --config libblas.so-x86_64-linux-gnu
 
 ## Formulation
 
-Eigenvalue problems
+Eigenvalue problems of $n\times n$ matrix $A$
 
 $$
 A\lambda = \varepsilon\lambda

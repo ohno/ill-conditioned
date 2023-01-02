@@ -4,15 +4,40 @@ Examples of ill-conditioned eigenvalue problems.
 
 ## Usage
 
-Run following commands on WSL/Ubuntu.
+Run following commands on WSL/Ubuntu. Each eigenvalue problems of [Frank matrix](https://doi.org/10.1137/0106026) and of [Hilbert matrix](https://doi.org/10.1007/BF02418278) will be solved using [SSYEV](https://netlib.org/lapack/explore-html/d3/d88/group__real_s_yeigen_ga63d8d12aef8f2711d711d9e6bd833e46.html) and [DSYEV](https://netlib.org/lapack/explore-html/d2/d8a/group__double_s_yeigen_ga442c43fca5493590f8f26cf42fed4044.html). Results depend on the number of threads.
 
 ```
 git clone https://github.com/ohno/ill-conditioned.git
 cd ill-conditioned
+export OMP_NUM_THREADS=1
 bash run.sh
 ```
 
-GCC, [BLAS](https://netlib.org/blas/) and [LAPACK](https://netlib.org/lapack/) will be installed by `bash install.sh`. Eigenvalue problems of [Frank matrix](https://doi.org/10.1137/0106026) and [Hilbert matrix](https://doi.org/10.1007/BF02418278) will be solved by [SSYEV](https://netlib.org/lapack/explore-html/d3/d88/group__real_s_yeigen_ga63d8d12aef8f2711d711d9e6bd833e46.html) and [DSYEV](https://netlib.org/lapack/explore-html/d2/d8a/group__double_s_yeigen_ga442c43fca5493590f8f26cf42fed4044.html) by `bash run.sh`.
+GCC, [BLAS](https://netlib.org/blas/) and [LAPACK](https://netlib.org/lapack/) must be installed before use. Run following commands on WSL/Ubuntu to install GCC, BLAS and LAPACK.
+
+```
+sudo apt update
+sudo apt install build-essential
+sudo apt install gfortran
+gcc -v
+g++ -v
+gfortran -v
+sudo apt install libblas-dev
+sudo apt install liblapack-dev
+```
+
+If you need other BLAS distributions, run following commands on WSL/Ubuntu to install and to choice.
+
+```
+sudo apt update
+sudo apt install libblas-dev
+sudo apt install libatlas-base-dev
+sudo apt install libblis-dev
+sudo apt install intel-mkl
+sudo apt install libopenblas-base
+sudo apt install libopenblas-dev
+sudo update-alternatives --config libblas.so-x86_64-linux-gnu
+```
 
 ## Formulation
 
@@ -53,6 +78,8 @@ A =
 $$
 
 ## Results
+
+Minimum eigenvalues are following.
 
 ```
 Frank matrix

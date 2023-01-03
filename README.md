@@ -44,7 +44,7 @@ sudo update-alternatives --config libblas.so-x86_64-linux-gnu
 Eigenvalue problems of $n\times n$ matrix $A$
 
 $$
-A\lambda = \varepsilon\lambda
+Ax = \lambda x
 $$
 
 are solved. For example, $5\times5$ [Frank matrix](https://doi.org/10.1137/0106026) is
